@@ -14,6 +14,8 @@ public class TV {
 		
 		this.marca = marca;
 		this.estado = estado;
+		
+		TV.numTV++;
 	}
 	
 	public void setMarca (Marca marca) {
@@ -28,7 +30,11 @@ public class TV {
 	
 	public void setCanal (int canal) {
 		
-		this.canal = canal;
+		if ((estado && canal <=120) && (canal >= 1)){
+			
+			this.canal = canal;
+		}
+		
 	}
 	
 	public int getCanal () {
@@ -48,7 +54,9 @@ public class TV {
 	
 	public void setVolumen (int volumen) {
 		
-		this.volumen = volumen;
+		if ((estado && volumen <=7) && (volumen >= 0)) {
+			this.volumen = volumen;
+		}
 	}
 	
 	public int getVolumen () {
@@ -67,12 +75,12 @@ public class TV {
 		return control;
 	}
 	
-	public void setNumTV (int numTV) {
+	public static void setNumTV (int numTV) {
 		
-		this.numTV = numTV;
+		TV.numTV = numTV;
 	}
 	
-	public int getNumTV () {
+	public static int getNumTV () {
 		
 		return numTV;
 	}
@@ -94,7 +102,7 @@ public class TV {
 	
 	public void canalUp () {
 		
-	if (estado && canal <=120) {
+	if ((estado && canal <=120) && (canal >=1)) {
 		
 		canal++;	
 	}
@@ -103,7 +111,7 @@ public class TV {
 	
 	public void canalDown() {
 		
-		if (estado && canal>1) {
+		if ((estado && canal>1) && (canal <= 120)) {
 			canal--;
 		}
 		
@@ -111,7 +119,7 @@ public class TV {
 	
 	public void volumenUp () {
 		
-		if (estado && volumen < 7) {
+		if ((estado && volumen < 7) && (volumen >=0)) {
 			volumen++;
 		}
 		
@@ -119,7 +127,7 @@ public class TV {
 	
 	public void volumenDown() {
 		
-		if (estado && volumen > 0) {
+		if ((estado && volumen > 0) && (volumen <= 7)) {
 			
 			volumen--;
 		}

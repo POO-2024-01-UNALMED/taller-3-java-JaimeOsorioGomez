@@ -2,13 +2,8 @@ package taller3.televisores;
 
 public class Control {
 	
-	TV tv;
-	
-	public Control (TV tv) {
-		
-		this.tv = tv;
-	}
-	
+	private TV tv;
+
 	public void setTV (TV tv) {
 		
 		this.tv = tv;
@@ -32,7 +27,7 @@ public class Control {
 	
 	public void canalUp(){
 		
-		if (tv.estado && tv.canal <= 120) {
+		if ((tv.estado && tv.canal <= 120)&&(tv.canal>=1)){
 			
 			tv.canal++;
 		}
@@ -40,8 +35,8 @@ public class Control {
 	}
 	
 	public void canalDown() {
-		
-		if (tv.estado && tv.canal > 0) {
+			
+		if ((tv.estado && tv.canal > 0) &&(tv.canal <=120)) {
 			
 			tv.canal--;
 		}
@@ -50,7 +45,7 @@ public class Control {
 	
 	public void volumenUp () {
 		
-		if (tv.estado && tv.volumen < 7) {
+		if ((tv.estado && tv.volumen < 7) && (tv.volumen>=0)) {
 			tv.volumen++;
 		}
 		
@@ -58,7 +53,7 @@ public class Control {
 	
 	public void volumenDown() {
 		
-		if (tv.estado && tv.volumen > 0) {
+		if ((tv.estado && tv.volumen > 0) && (tv.volumen <=7)) {
 			
 			tv.volumen--;
 		}
@@ -67,15 +62,21 @@ public class Control {
 	
 	public void setVolumen (int volumen) {
 		
-		tv.volumen = volumen;
+		if ((tv.estado && tv.volumen>= 0) && (tv.volumen <= 7)) {
+			tv.volumen = volumen;
+		}
+		
 	}
 	
 	public void setCanal (int canal) {
 		
-		tv.canal = canal;
+		if ((tv.estado && tv.canal <= 120) && (tv.canal>=1)) {
+			tv.canal = canal;
+		}
+		
 	}
 	
-	public void Enlazar(TV tv) {
+	public void enlazar(TV tv) {
 		
 		this.tv = tv;
 		tv.setControl(this);
