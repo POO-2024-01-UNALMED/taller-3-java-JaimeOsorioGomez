@@ -27,42 +27,30 @@ public class Control {
 	
 	public void canalUp(){
 		
-		if ((tv.estado && tv.canal <= 120)&&(tv.canal>=1)){
-			
-			tv.canal++;
-		}
+		tv.canalUp();
 		
 	}
 	
 	public void canalDown() {
 			
-		if ((tv.estado && tv.canal > 0) &&(tv.canal <=120)) {
-			
-			tv.canal--;
-		}
+		tv.canalDown();
 					
 	}
 	
 	public void volumenUp () {
 		
-		if ((tv.estado && tv.volumen < 7) && (tv.volumen>=0)) {
-			tv.volumen++;
-		}
+		tv.volumenUp();
 		
 	}
 	
 	public void volumenDown() {
 		
-		if ((tv.estado && tv.volumen > 0) && (tv.volumen <=7)) {
-			
-			tv.volumen--;
-		}
-			
+		tv.volumenDown();
 }
 	
 	public void setVolumen (int volumen) {
 		
-		if ((tv.estado && tv.volumen>= 0) && (tv.volumen <= 7)) {
+		if ((tv.estado && volumen>= 0) && (volumen <= 7)) {
 			tv.volumen = volumen;
 		}
 		
@@ -70,8 +58,8 @@ public class Control {
 	
 	public void setCanal (int canal) {
 		
-		if ((tv.estado && tv.canal <= 120) && (tv.canal>=1)) {
-			tv.canal = canal;
+		if ((tv.estado && canal <= 120) && ( canal>=1)) {
+				tv.canal = canal;
 		}
 		
 	}

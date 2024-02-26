@@ -102,11 +102,11 @@ public class TV {
 	
 	public void canalUp () {
 		
-	if ((estado && canal <=120) && (canal >=1)) {
+	if ((estado && canal <120) && (canal >=1)) {
 		
 		this.canal++;	
 	}
-		
+
 	}
 	
 	public void canalDown() {
